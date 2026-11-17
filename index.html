@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مركز دراستي 🚀 – ذاكر، التزم، وانجز</title>
+<meta name="description" content="موقع تحفيزي لطلاب الإعدادي والثانوي: جدول حصص، واجبات، نقاط، شارات وسلسلة أيام متواصلة.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1eeff;--ink:#1f1a3d;--mute:#6a6590;--card:#fff;--line:#e4dffa;--p:#6c3df5;--p2:#4a7bff;--co:#ff6b6b;--sun:#ffc933;--mint:#14b886;--f:'Cairo','Segoe UI',Tahoma,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 var(--f);padding-bottom:96px}
+h1,h2,h3{margin:0;line-height:1.4}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:16px}
+section{display:none}section.on{display:block}
+h2{font-size:1.6rem;margin:6px 0 12px}
+h3{font-size:1.1rem;margin-bottom:8px}
+.card{background:var(--card);border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 4px 0 var(--line)}
+#hero{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border-radius:24px;padding:18px;display:flex;gap:14px;align-items:center;margin-bottom:14px}
+#hero .av{font-size:3rem;background:#ffffff26;border-radius:50%;width:76px;height:76px;display:grid;place-items:center;flex:none}
+#hero h1{font-size:1.5rem}
+.ttl{font-weight:600;opacity:.95}
+.bar{height:12px;background:#ffffff40;border-radius:9px;overflow:hidden;margin:6px 0 2px}
+.bar i{display:block;height:100%;background:var(--sun);border-radius:9px;transition:width .5s}
+#hero small{opacity:.9}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.chip{background:var(--card);border-radius:16px;padding:8px 4px;text-align:center;box-shadow:0 3px 0 var(--line)}
+.chip b{display:block;font-size:1.35rem}.chip span{font-size:.78rem;color:var(--mute)}
+.msg{background:#fff7d6;border:2px dashed var(--sun);border-radius:18px;padding:12px 14px;margin-bottom:14px;font-weight:600}
+.mission{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+.ring{width:84px;height:84px;flex:none;position:relative}
+.ring svg{transform:rotate(90deg) scaleX(-1)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.2rem}
+.row{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.row .t{flex:1;min-width:0}.row .t b{display:block}.row .t small{color:var(--mute)}
+.ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;flex:none}
+.chk{width:34px;height:34px;border-radius:50%;border:3px solid var(--p);background:#fff;color:#fff;font-size:1.1rem;cursor:pointer;flex:none}
+.chk.on{background:var(--mint);border-color:var(--mint)}
+.done .t b{text-decoration:line-through;color:var(--mute)}
+.pill{background:var(--p);color:#fff;border:0;border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer}
+.pill:hover{filter:brightness(1.1)}
+.pill.alt{background:#fff;color:var(--p);border:2px solid var(--p)}
+.pill.big{width:100%;padding:12px;font-size:1.05rem}
+.x{background:none;border:0;color:var(--co);font-weight:600;cursor:pointer;padding:4px 6px}
+.tag{font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:99px;background:#ece8ff;color:var(--p);white-space:nowrap}
+.tag.high,.tag.late{background:#ffe3e3;color:#c92a2a}.tag.med{background:#fff1c2;color:#8a6100}.tag.low,.tag.ok{background:#d9f7ec;color:#0b7a56}
+.empty{color:var(--mute);padding:8px 0;text-align:center}
+details.add{background:var(--card);border-radius:20px;padding:6px 16px;margin-bottom:14px;box-shadow:0 4px 0 var(--line)}
+details.add summary{cursor:pointer;font-weight:800;padding:10px 0;color:var(--p)}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;padding:6px 0 14px}
+label{display:grid;gap:4px;font-size:.88rem;color:var(--mute);font-weight:600}
+input,select,textarea{padding:10px;border:2px solid var(--line);border-radius:12px;background:#fff;width:100%}
+input[type=url]{direction:ltr;text-align:right}
+.filters{display:flex;gap:8px;margin-bottom:10px}
+.filters button{border:2px solid var(--line);background:#fff;border-radius:99px;padding:5px 16px;cursor:pointer;font-weight:600}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.bd{text-align:center;padding:12px 6px;border-radius:16px;background:#fff8dc;border:2px solid var(--sun)}
+.bd i{font-style:normal;font-size:2rem;display:block}.bd small{color:var(--mute);display:block;line-height:1.3}
+.bd.lock{background:#f4f2fb;border-color:var(--line);filter:grayscale(1);opacity:.65}
+.dayh{border-right:6px solid var(--sun);padding-right:10px;margin:14px 0 6px}
+nav{position:fixed;bottom:0;inset-inline:0;background:#fff;display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px #1f1a3d14;z-index:5}
+nav button{background:none;border:0;display:grid;justify-items:center;font-size:.72rem;font-weight:600;color:var(--mute);padding:4px 6px;border-radius:12px;cursor:pointer;min-width:50px}
+nav button i{font-style:normal;font-size:1.4rem}
+nav button.on{color:var(--p);background:#ece8ff}
+#toast{position:fixed;top:14px;left:50%;transform:translate(-50%,-90px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;font-weight:600;z-index:30;transition:transform .35s;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+.cf{position:fixed;top:-30px;font-size:1.6rem;z-index:25;pointer-events:none;animation:fall 1.8s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+@media(prefers-reduced-motion:reduce){.cf{display:none}.bar i,#toast{transition:none}}
+#reg{position:fixed;inset:0;background:linear-gradient(160deg,var(--p),var(--p2));display:none;overflow:auto;padding:16px;z-index:20}
+#reg.on{display:block}
+#reg .box{background:#fff;border-radius:24px;padding:22px;max-width:480px;margin:0 auto}
+#reg .f{grid-template-columns:1fr}
+.avs{display:flex;flex-wrap:wrap;gap:8px}
+.avs button{font-size:1.8rem;width:54px;height:54px;border-radius:16px;border:3px solid var(--line);background:#fff;cursor:pointer}
+.avs button.on{border-color:var(--p);background:#ece8ff}
+@media(max-width:420px){#hero h1{font-size:1.2rem}#hero .av{width:60px;height:60px;font-size:2.2rem}}
+</style>
+</head>
+<body>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<div id="reg" role="dialog" aria-modal="true" aria-labelledby="regT">
+  <div class="box">
+    <h1 id="regT">أهلًا بك في مركز دراستي 🚀</h1>
+    <p style="color:var(--mute);margin:4px 0">ذاكر كل يوم، اجمع النقاط، افتح الشارات وابنِ سلسلة أيام متواصلة. عرّفنا بنفسك لنبدأ!</p>
+    <div class="f" id="rForm">
+      <label>اسمك<input data-k="name" data-req maxlength="40" placeholder="مثال: سارة"></label>
+      <label>عمرك<input data-k="age" data-req type="number" min="8" max="25" inputmode="numeric"></label>
+      <label>صفك الدراسي
+        <select data-k="grade" data-req>
+          <option value="">اختر…</option>
+          <option>الصف الأول الإعدادي</option><option>الصف الثاني الإعدادي</option><option>الصف الثالث الإعدادي</option>
+          <option>الصف الأول الثانوي</option><option>الصف الثاني الثانوي</option><option>الصف الثالث الثانوي</option>
+        </select></label>
+      <label>مادتك المفضلة<input data-k="fav" maxlength="40"></label>
+      <label>هدفك هذا الفصل<textarea data-k="goal" rows="2" maxlength="140" placeholder="مثال: أحصل على 90% في كل المواد"></textarea></label>
+      <div><div style="color:var(--mute);font-weight:600;font-size:.88rem;margin-bottom:4px">اختر رفيقك</div><div class="avs" id="avs"></div></div>
+      <button class="pill big" data-a="reg">ابدأ رحلتي 🚀</button>
+      <button class="pill alt big" data-a="demo">جرّب بيانات تجريبية أولًا</button>
+    </div>
+  </div>
+</div>
+
+<main>
+<section id="dash" class="on">
+  <div id="hero"></div>
+  <div class="chips" id="chips"></div>
+  <div class="msg" id="msg"></div>
+  <div class="card"><h3>🎯 مهمة اليوم</h3><div id="mission"></div></div>
+  <div class="card"><h3>📅 قادم قريبًا</h3><div id="soon"></div></div>
+</section>
+
+<section id="courses">
+  <h2>📚 موادي</h2>
+  <details class="add"><summary>➕ أضف مادة</summary>
+    <div class="f" id="cForm">
+      <label>اسم المادة<input data-k="name" data-req maxlength="40"></label>
+      <label>الأيقونة<select data-k="icon"><option value="📘">📘 عام</option><option value="🧮">🧮 رياضيات</option><option value="🧪">🧪 علوم</option><option value="📖">📖 لغة عربية</option><option value="🗣️">🗣️ لغة إنجليزية</option><option value="🌍">🌍 دراسات</option><option value="🎨">🎨 فنون</option><option value="💻">💻 حاسب</option><option value="⚽">⚽ رياضة</option></select></label>
+      <label>المدرّس<input data-k="teacher" maxlength="40"></label>
+      <button class="pill" data-a="addC">إضافة المادة</button>
+    </div>
+  </details>
+  <div class="card"><h3>قيد الدراسة</h3><div id="cCur"></div></div>
+  <div class="card"><h3>🎓 مواد أنجزتها</h3><div id="cDone"></div></div>
+</section>
+
+<section id="sched">
+  <h2>🗓️ جدول حصصي</h2>
+  <details class="add"><summary>➕ أضف حصة</summary>
+    <div class="f" id="sForm">
+      <label>المادة<select data-k="course" data-req id="sCourse"></select></label>
+      <label>اليوم<select data-k="day"><option value="6">السبت</option><option value="0">الأحد</option><option value="1">الاثنين</option><option value="2">الثلاثاء</option><option value="3">الأربعاء</option><option value="4">الخميس</option><option value="5">الجمعة</option></select></label>
+      <label>تبدأ<input data-k="start" data-req type="time" value="08:00"></label>
+      <label>تنتهي<input data-k="end" data-req type="time" value="09:00"></label>
+      <label>القاعة / الرابط<input data-k="room" maxlength="40"></label>
+      <button class="pill" data-a="addS">إضافة للجدول</button>
+    </div>
+  </details>
+  <div id="week"></div>
+</section>
+
+<section id="tasks">
+  <h2>✏️ واجباتي</h2>
+  <details class="add"><summary>➕ أضف واجبًا</summary>
+    <div class="f" id="tForm">
+      <label>عنوان الواجب<input data-k="title" data-req maxlength="80"></label>
+      <label>المادة<select data-k="course" id="tCourse"></select></label>
+      <label>موعد التسليم<input data-k="due" data-req type="date" id="tDue"></label>
+      <label>الأهمية<select data-k="pri"><option value="high">عالية</option><option value="med" selected>متوسطة</option><option value="low">منخفضة</option></select></label>
+      <label>ملاحظات<input data-k="note" maxlength="80"></label>
+      <button class="pill" data-a="addT">إضافة الواجب</button>
+    </div>
+  </details>
+  <div class="filters" id="tFilter"><button data-a="flt" data-id="open" class="on">المطلوبة</button><button data-a="flt" data-id="done">المنجزة ✅</button><button data-a="flt" data-id="all">الكل</button></div>
+  <div class="card" id="tList"></div>
+</section>
+
+<section id="mats">
+  <h2>📎 مصادر المذاكرة</h2>
+  <details class="add"><summary>➕ أضف مصدرًا</summary>
+    <div class="f" id="mForm">
+      <label>العنوان<input data-k="title" data-req maxlength="80" placeholder="مثال: ملخص الدرس الرابع"></label>
+      <label>المادة<select data-k="course" id="mCourse"></select></label>
+      <label>الواجب المرتبط<select data-k="task" id="mTask"></select></label>
+      <label>الرابط (اختياري)<input data-k="url" type="url" placeholder="https://"></label>
+      <label>مهمتك معه<input data-k="todo" maxlength="80" placeholder="مثال: اقرأ الصفحات 40–60"></label>
+      <button class="pill" data-a="addM">إضافة المصدر</button>
+    </div>
+  </details>
+  <div class="card" id="mList"></div>
+</section>
+
+<section id="me">
+  <h2>🏆 إنجازاتي</h2>
+  <div class="card"><h3>شاراتي</h3><div class="badges" id="badges"></div></div>
+  <div class="card" id="profile"></div>
+  <button class="pill alt" data-a="editP">✏️ تعديل بياناتي</button>
+  <button class="x" data-a="wipe">مسح كل البيانات</button>
+</section>
+</main>
+
+<nav id="nav">
+  <button data-t="dash" class="on"><i>🏠</i>الرئيسية</button>
+  <button data-t="courses"><i>📚</i>موادي</button>
+  <button data-t="sched"><i>🗓️</i>الجدول</button>
+  <button data-t="tasks"><i>✏️</i>واجباتي</button>
+  <button data-t="mats"><i>📎</i>مصادر</button>
+  <button data-t="me"><i>🏆</i>إنجازاتي</button>
+</nav>
+
+<script>
+(function(){
+const KEY='studyhub.teen.v1';
+const DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const PAL=['#6c3df5','#ff6b6b','#14b886','#ff9f1c','#2d9cdb','#e056a0','#8a9a00','#0aa5b5'];
+const AV=['🦊','🐼','🦁','🐯','🚀','🦉','🐬','⭐'];
+const TITLES=['مستكشف 🌱','مجتهد 📘','متفوق ⚡','نجم الدراسة 🌟','بطل المذاكرة 🏆','أسطورة 👑'];
+const QUOTES=['كل خطوة صغيرة اليوم تقرّبك من حلمك. 🌟','عشرون دقيقة بتركيز أفضل من ساعتين مشتتة. ⏱️','أنت أقوى من الكسل. ابدأ بخمس دقائق فقط! 💪','الاستمرار أهم من الكمال. 🔥','اليوم الذي تذاكر فيه يجعل غدك أسهل. 🌈','كل واجب تنهيه هو نقطة قوة جديدة. ⭐','لا تقارن نفسك بغيرك، قارن نفسك بأمس. 🚀'];
+const BADGES=[
+{id:'t1',i:'✏️',n:'أول واجب',d:'أنهِ واجبًا واحدًا',f:s=>s.t>=1},
+{id:'t5',i:'📚',n:'منجز نشيط',d:'أنهِ 5 واجبات',f:s=>s.t>=5},
+{id:'t15',i:'🏅',n:'ماكينة واجبات',d:'أنهِ 15 واجبًا',f:s=>s.t>=15},
+{id:'a1',i:'🏫',n:'حاضر',d:'سجّل حضور أول حصة',f:s=>s.a>=1},
+{id:'a10',i:'🎒',n:'ملتزم بالحضور',d:'سجّل حضور 10 حصص',f:s=>s.a>=10},
+{id:'s3',i:'🔥',n:'شعلة 3 أيام',d:'3 أيام متتالية',f:s=>s.s>=3},
+{id:'s7',i:'🌟',n:'أسبوع كامل',d:'7 أيام متتالية',f:s=>s.s>=7},
+{id:'l3',i:'🚀',n:'المستوى 3',d:'اجمع 200 نقطة',f:s=>s.l>=3},
+{id:'c1',i:'🎓',n:'أنهيت مادة',d:'أكمل مادة دراسية',f:s=>s.c>=1}
+];
+const fresh=()=>({profile:null,courses:[],classes:[],tasks:[],mats:[],xp:0,checkins:{},days:[],badges:{}});
+let S=fresh(),tf='open',av=AV[0];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const uid=()=>Math.random().toString(36).slice(2,10);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const today=()=>key(new Date());
+const dd=n=>{const d=new Date();d.setDate(d.getDate()+n);return key(d)};
+const lvl=()=>Math.floor(S.xp/100)+1;
+const course=id=>S.courses.find(c=>c.id===id);
+function load(){try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(fresh(),JSON.parse(r))}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function streak(){const set=new Set(S.days);const d=new Date();if(!set.has(key(d)))d.setDate(d.getDate()-1);let n=0;while(set.has(key(d))){n++;d.setDate(d.getDate()-1)}return n}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2600)}
+function boom(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const em=['🎉','⭐','✨','🎊','🌟'];for(let i=0;i<22;i++){const s=document.createElement('span');s.className='cf';s.textContent=em[i%5];s.style.left=Math.random()*96+'%';s.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),2600)}}
+const fmtTime=t=>{const[h,m]=t.split(':').map(Number);return(h%12||12)+':'+String(m).padStart(2,'0')+(h<12?' ص':' م')};
+function dueLbl(d){const n=Math.round((new Date(d+'T00:00')-new Date(today()+'T00:00'))/864e5);if(n<0)return'متأخر '+(-n)+' يوم';if(n===0)return'اليوم';if(n===1)return'غدًا';return new Date(d+'T00:00').toLocaleDateString('ar-EG-u-nu-latn',{weekday:'long',month:'short',day:'numeric'})}
+const empty=t=>'<div class="empty">'+t+'</div>';
+const ico=id=>{const c=course(id);return '<span class="ic" style="background:'+(c?c.color+'22':'#eee')+'">'+(c?c.icon:'📘')+'</span>'};
+const cName=id=>{const c=course(id);return c?esc(c.name):'بدون مادة'};
+
+/* points, levels, badges */
+function commit(n,msg){
+  const oldL=lvl();
+  if(n){S.xp=Math.max(0,S.xp+n);if(n>0&&!S.days.includes(today()))S.days.push(today())}
+  const st={t:S.tasks.filter(x=>x.done).length,a:Object.keys(S.checkins).length,s:streak(),l:lvl(),c:S.courses.filter(c=>c.status==='done').length};
+  const nb=BADGES.filter(b=>!S.badges[b.id]&&b.f(st));nb.forEach(b=>S.badges[b.id]=today());
+  save();render();
+  let m=msg||'';if(n>0)m+=(m?' ':'')+'+'+n+' نقطة ⭐';
+  if(lvl()>oldL){m='🎉 ارتفع مستواك إلى '+lvl()+'!';boom()}
+  if(nb.length){m='🏆 شارة جديدة: '+nb[0].n;boom()}
+  if(m)toast(m);
+}
+
+/* form helpers (no <form> tags, so they work everywhere) */
+function vals(r){const o={};r.querySelectorAll('[data-k]').forEach(i=>o[i.dataset.k]=i.value.trim());return o}
+function ok(r){const bad=[...r.querySelectorAll('[data-req]')].find(i=>!i.value.trim());if(bad){bad.focus();toast('⚠️ من فضلك املأ الخانة المطلوبة');return false}return true}
+function clr(r){r.querySelectorAll('input[type=text],input:not([type]),input[type=url],textarea').forEach(i=>i.value='');r.closest('details')&&(r.closest('details').open=false)}
+
+/* actions */
+function act(a,id,b){
+  if(a==='avatar'){av=id;$$('#avs button').forEach(x=>x.classList.toggle('on',x.dataset.id===id));return}
+  if(a==='reg'){
+    const r=$('#rForm');if(!ok(r))return;const v=vals(r);
+    if(+v.age<8||+v.age>25){toast('⚠️ اكتب عمرك بشكل صحيح');return}
+    S.profile=Object.assign({},v,{avatar:av});save();$('#reg').classList.remove('on');render();
+    if(!S.days.length)toast('أهلًا '+v.name+'! ابدأ بإضافة موادك 📚');return}
+  if(a==='demo'){demo();return}
+  if(a==='editP'){openReg(S.profile);return}
+  if(a==='addC'){const r=$('#cForm');if(!ok(r))return;const v=vals(r);S.courses.push({id:uid(),name:v.name,icon:v.icon,teacher:v.teacher,color:PAL[S.courses.length%PAL.length],status:'current'});clr(r);commit(0,'✅ تمت إضافة المادة');return}
+  if(a==='addS'){const r=$('#sForm');if(!S.courses.some(c=>c.status==='current')){toast('أضف مادة أولًا 📚');return}if(!ok(r))return;const v=vals(r);if(v.end<=v.start){toast('⚠️ وقت الانتهاء يجب أن يكون بعد البداية');return}S.classes.push({id:uid(),course:v.course,day:+v.day,start:v.start,end:v.end,room:v.room});clr(r);commit(0,'✅ تمت إضافة الحصة');return}
+  if(a==='addT'){const r=$('#tForm');if(!ok(r))return;const v=vals(r);S.tasks.push({id:uid(),title:v.title,course:v.course,due:v.due,pri:v.pri,note:v.note,done:false});clr(r);$('#tDue').value=today();commit(0,'✅ تمت إضافة الواجب');return}
+  if(a==='addM'){const r=$('#mForm');if(!ok(r))return;const v=vals(r);S.mats.push({id:uid(),title:v.title,course:v.course,task:v.task,url:v.url,todo:v.todo,done:false});clr(r);commit(0,'✅ تمت إضافة المصدر');return}
+  if(a==='flt'){tf=id;render();return}
+  if(a==='att'){const k=today()+'|'+id;if(S.checkins[k])return;S.checkins[k]=1;commit(10,'🏫 تم تسجيل حضورك!');return}
+  if(a==='done'){const t=S.tasks.find(x=>x.id===id);if(!t)return;
+    if(!t.done){t.done=true;t.doneAt=today();t.xp=20+(t.due>=today()?10:0);boom();commit(t.xp,t.due>=today()?'🎉 أنجزت واجبك في موعده!':'👏 أنجزته ولو متأخرًا!')}
+    else{t.done=false;const x=t.xp||0;t.xp=0;commit(-x)}return}
+  if(a==='mdone'){const m=S.mats.find(x=>x.id===id);if(!m)return;
+    if(!m.done){m.done=true;m.xp=5;commit(5,'📖 أحسنت!')}else{m.done=false;m.xp=0;commit(-5)}return}
+  if(a==='finC'){course(id).status='done';boom();commit(50,'🎓 مبروك! أنهيت مادة كاملة');return}
+  if(a==='reopenC'){course(id).status='current';commit(-50);return}
+  if(a==='wipe'||a.startsWith('del')){
+    if(!b.dataset.sure){b.dataset.sure=1;const o=b.textContent;b.textContent='اضغط مرة أخرى للتأكيد';setTimeout(()=>{if(b.isConnected){b.textContent=o;delete b.dataset.sure}},3000);return}
+    if(a==='wipe'){try{localStorage.removeItem(KEY)}catch(e){}S=fresh();render();openReg();return}
+    if(a==='delC'){S.courses=S.courses.filter(c=>c.id!==id);S.classes=S.classes.filter(c=>c.course!==id)}
+    if(a==='delS')S.classes=S.classes.filter(c=>c.id!==id);
+    if(a==='delT')S.tasks=S.tasks.filter(c=>c.id!==id);
+    if(a==='delM')S.mats=S.mats.filter(c=>c.id!==id);
+    commit(0)}
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(b){act(b.dataset.a,b.dataset.id,b);return}
+  const n=e.target.closest('#nav [data-t]');if(n){const t=n.dataset.t;
+    $$('main section').forEach(s=>s.classList.toggle('on',s.id===t));$$('#nav button').forEach(x=>x.classList.toggle('on',x===n));window.scrollTo(0,0)}
+});
+
+/* registration */
+function openReg(p){
+  $('#avs').innerHTML=AV.map(a=>'<button type="button" data-a="avatar" data-id="'+a+'" aria-label="رفيق '+a+'" class="'+(a===(p?p.avatar:av)?'on':'')+'">'+a+'</button>').join('');
+  av=p?p.avatar:av;
+  $$('#rForm [data-k]').forEach(i=>i.value=p?(p[i.dataset.k]||''):'');
+  $('#reg').classList.add('on');
+}
+
+/* render */
+function taskRow(t,showDel){
+  const late=!t.done&&t.due<today();
+  return '<div class="row'+(t.done?' done':'')+'"><button class="chk'+(t.done?' on':'')+'" data-a="done" data-id="'+t.id+'" aria-label="'+(t.done?'إلغاء الإنجاز':'تم إنجازه')+'">'+(t.done?'✓':'')+'</button>'+ico(t.course)+
+  '<div class="t"><b>'+esc(t.title)+'</b><small>'+cName(t.course)+(t.note?' · '+esc(t.note):'')+'</small></div><span class="tag '+(late?'late':'')+'">'+dueLbl(t.due)+'</span>'+
+  (showDel?'<button class="x" data-a="delT" data-id="'+t.id+'">حذف</button>':'')+'</div>';
+}
+function clsRow(c,live,del){
+  const did=S.checkins[today()+'|'+c.id];
+  return '<div class="row">'+ico(c.course)+'<div class="t"><b>'+cName(c.course)+'</b><small>'+fmtTime(c.start)+' – '+fmtTime(c.end)+(c.room?' · '+esc(c.room):'')+'</small></div>'+
+  (live?(did?'<span class="tag ok">حضرت ✅</span>':'<button class="pill" data-a="att" data-id="'+c.id+'">سجّل حضوري</button>'):'')+
+  (del?'<button class="x" data-a="delS" data-id="'+c.id+'">إزالة</button>':'')+'</div>';
+}
+function render(){
+  const p=S.profile;if(!p)return;
+  const td=today(),dow=new Date().getDay(),L=lvl();
+  const hr=new Date().getHours(),first=p.name.split(' ')[0];
+  $('#hero').innerHTML='<div class="av">'+esc(p.avatar)+'</div><div style="flex:1"><h1>'+(hr<12?'صباح الخير':hr<18?'طاب يومك':'مساء الخير')+'، '+esc(first)+'!</h1><div class="ttl">المستوى '+L+' · '+TITLES[Math.min(L-1,5)]+'</div><div class="bar"><i style="width:'+(S.xp%100)+'%"></i></div><small>'+(S.xp%100)+' / 100 نقطة للمستوى التالي</small></div>';
+  const tdone=S.tasks.filter(t=>t.done).length;
+  $('#chips').innerHTML=[['🔥',streak(),'أيام متتالية'],['⭐',S.xp,'نقطة'],['✅',tdone,'واجب منجز'],['🏫',Object.keys(S.checkins).length,'حصة حضرتها']].map(c=>'<div class="chip"><b>'+c[0]+' '+c[1]+'</b><span>'+c[2]+'</span></div>').join('');
+
+  const cl=S.classes.filter(c=>c.day===dow).sort((a,b)=>a.start.localeCompare(b.start));
+  const open=S.tasks.filter(t=>!t.done&&t.due<=td).sort((a,b)=>a.due.localeCompare(b.due));
+  const dn=S.tasks.filter(t=>t.done&&t.doneAt===td);
+  const total=cl.length+open.length+dn.length,done=cl.filter(c=>S.checkins[td+'|'+c.id]).length+dn.length;
+  const pct=total?Math.round(done/total*100):0;
+  const late=S.tasks.filter(t=>!t.done&&t.due<td).length;
+  $('#msg').textContent=late?'عندك '+late+' واجب متأخر. ابدأ بأسهلهم وستشعر بالفرق! 💪':(total&&done===total?'أنجزت كل مهام اليوم! أنت بطل حقيقي 🏆':QUOTES[Math.floor(Date.now()/864e5)%QUOTES.length]);
+  $('#mission').innerHTML=total?'<div class="mission"><div class="ring"><svg width="84" height="84"><circle cx="42" cy="42" r="34" fill="none" stroke="#ece8ff" stroke-width="9"/><circle cx="42" cy="42" r="34" fill="none" stroke="#14b886" stroke-width="9" stroke-linecap="round" stroke-dasharray="'+(pct*2.136)+' 214"/></svg><b>'+pct+'%</b></div><div><b>'+done+' من '+total+' مهام</b><br><small style="color:var(--mute)">'+(done===total?'ممتاز! يوم مثالي ✨':'سجّل حضورك وأنهِ واجباتك لتجمع النقاط')+'</small></div></div>'+cl.map(c=>clsRow(c,true)).join('')+open.concat(dn).map(t=>taskRow(t,false)).join(''):empty('يوم هادئ 🌿 لا توجد حصص أو واجبات اليوم. راجع مادة أو أضف واجبًا.');
+  const soon=S.tasks.filter(t=>!t.done&&t.due>td).sort((a,b)=>a.due.localeCompare(b.due)).slice(0,4);
+  $('#soon').innerHTML=soon.length?soon.map(t=>taskRow(t,false)).join(''):empty('لا توجد واجبات قادمة. استمتع بوقتك! 😎');
+
+  /* courses */
+  const cur=S.courses.filter(c=>c.status==='current'),dc=S.courses.filter(c=>c.status==='done');
+  const cr=(c,d)=>'<div class="row">'+ico(c.id)+'<div class="t"><b>'+esc(c.name)+'</b><small>'+(esc(c.teacher)||'—')+'</small></div>'+(d?'<button class="x" style="color:var(--p)" data-a="reopenC" data-id="'+c.id+'">إعادة فتح</button>':'<button class="pill alt" data-a="finC" data-id="'+c.id+'">أنهيتها 🎓</button>')+'<button class="x" data-a="delC" data-id="'+c.id+'">حذف</button></div>';
+  $('#cCur').innerHTML=cur.length?cur.map(c=>cr(c,0)).join(''):empty('أضف موادك لتبدأ رحلتك 📚');
+  $('#cDone').innerHTML=dc.length?dc.map(c=>cr(c,1)).join('')+'<p style="margin:10px 0 0"><b>أنجزت '+dc.length+' مادة. أحسنت! 🎉</b></p>':empty('كل مادة تنهيها تمنحك 50 نقطة وتظهر هنا.');
+
+  /* selects */
+  const co=cur.map(c=>'<option value="'+c.id+'">'+c.icon+' '+esc(c.name)+'</option>').join('');
+  [['#sCourse',''],['#tCourse','<option value="">بدون مادة</option>'],['#mCourse','<option value="">بدون مادة</option>']].forEach(([s,h])=>{const el=$(s),k=el.value;el.innerHTML=h+co;if(k)el.value=k});
+  const mt=$('#mTask'),mk=mt.value;mt.innerHTML='<option value="">بدون</option>'+S.tasks.filter(t=>!t.done).map(t=>'<option value="'+t.id+'">'+esc(t.title)+'</option>').join('');mt.value=mk;
+
+  /* schedule */
+  const order=[6,0,1,2,3,4,5];
+  $('#week').innerHTML=S.classes.length?order.map(d=>{
+    const cs=S.classes.filter(c=>c.day===d).sort((a,b)=>a.start.localeCompare(b.start));if(!cs.length)return'';
+    return '<h3 class="dayh">'+DAYS[d]+(d===dow?' <span class="tag ok">اليوم</span>':'')+'</h3><div class="card">'+cs.map(c=>clsRow(c,d===dow?true:null,true)).join('')+'</div>';
+  }).join(''):'<div class="card">'+empty(cur.length?'أضف أول حصة لتبدأ بجمع نقاط الحضور 🏫':'أضف مادة أولًا ثم حدد مواعيد حصصها.')+'</div>';
+
+  /* tasks */
+  $$('#tFilter button').forEach(b=>b.classList.toggle('on',b.dataset.id===tf));
+  let tl=S.tasks.slice().sort((a,b)=>a.due.localeCompare(b.due));
+  if(tf==='open')tl=tl.filter(t=>!t.done);if(tf==='done')tl=tl.filter(t=>t.done);
+  $('#tList').innerHTML=tl.length?tl.map(t=>taskRow(t,true)).join(''):empty(tf==='done'?'أنهِ واجبًا لتراه هنا ✅':'لا توجد واجبات مطلوبة. عمل رائع! 🎉');
+
+  /* materials */
+  $('#mList').innerHTML=S.mats.length?S.mats.map(m=>{const t=S.tasks.find(x=>x.id===m.task);
+    return '<div class="row'+(m.done?' done':'')+'"><button class="chk'+(m.done?' on':'')+'" data-a="mdone" data-id="'+m.id+'" aria-label="تم">'+(m.done?'✓':'')+'</button>'+ico(m.course)+'<div class="t"><b>'+esc(m.title)+'</b><small>'+cName(m.course)+(m.todo?' · مهمتك: '+esc(m.todo):'')+(t?' · للواجب: '+esc(t.title):'')+'</small>'+(m.url?'<br><a href="'+esc(m.url)+'" target="_blank" rel="noopener">افتح المصدر</a>':'')+'</div><button class="x" data-a="delM" data-id="'+m.id+'">حذف</button></div>'}).join(''):empty('أضف ملخصات وروابط ومهمة لكل مصدر. كل مهمة تمنحك 5 نقاط.');
+
+  /* achievements */
+  $('#badges').innerHTML=BADGES.map(b=>'<div class="bd'+(S.badges[b.id]?'':' lock')+'"><i>'+b.i+'</i><b>'+b.n+'</b><small>'+b.d+'</small></div>').join('');
+  $('#profile').innerHTML='<h3>بياناتي</h3>'+[['الاسم',p.name],['العمر',p.age],['الصف',p.grade],['المادة المفضلة',p.fav],['هدفي',p.goal]].map(r=>'<div class="row"><div class="t"><small>'+r[0]+'</small><b>'+(esc(r[1])||'—')+'</b></div></div>').join('');
+}
+
+/* demo data */
+function demo(){
+  const c=(id,n,i,t,col,st)=>({id,name:n,icon:i,teacher:t,color:col,status:st||'current'});
+  const dow=new Date().getDay(),n=(dow+1)%7,m=(dow+3)%7;
+  S=Object.assign(fresh(),{
+    profile:{name:'سارة أحمد',age:'15',grade:'الصف الأول الثانوي',fav:'العلوم',goal:'أحصل على 90% في كل المواد',avatar:'🦊'},
+    courses:[c('c1','الرياضيات','🧮','أ. حسن',PAL[0]),c('c2','العلوم','🧪','أ. منى',PAL[1]),c('c3','اللغة العربية','📖','أ. كريم',PAL[2]),c('c4','اللغة الإنجليزية','🗣️','Ms. Laila',PAL[3]),c('c5','الحاسب الآلي','💻','أ. عمر',PAL[4],'done')],
+    classes:[{id:'s1',course:'c1',day:dow,start:'08:00',end:'09:00',room:'فصل 2'},{id:'s2',course:'c2',day:dow,start:'10:00',end:'11:00',room:'معمل العلوم'},{id:'s3',course:'c3',day:n,start:'09:00',end:'10:00',room:'فصل 2'},{id:'s4',course:'c4',day:n,start:'11:30',end:'12:30',room:'فصل 5'},{id:'s5',course:'c1',day:m,start:'08:00',end:'09:00',room:'فصل 2'}],
+    tasks:[{id:'t1',title:'حل تمارين الدرس الخامس',course:'c1',due:dd(0),pri:'high',note:'صفحة 42',done:false},{id:'t2',title:'تقرير تجربة الكهرباء',course:'c2',due:dd(2),pri:'med',note:'',done:false},{id:'t3',title:'كتابة موضوع تعبير',course:'c3',due:dd(4),pri:'med',note:'10 أسطر',done:false},{id:'t4',title:'حفظ كلمات الوحدة 3',course:'c4',due:dd(-1),pri:'low',note:'',done:false},{id:'t5',title:'مراجعة الدرس الرابع',course:'c1',due:dd(-2),pri:'low',note:'',done:true,doneAt:dd(-2),xp:30}],
+    mats:[{id:'m1',title:'ملخص الدرس الخامس',course:'c1',task:'t1',url:'',todo:'اقرأ الأمثلة 1–4',done:false},{id:'m2',title:'فيديو شرح الكهرباء',course:'c2',task:'t2',url:'https://example.com/video',todo:'شاهد ودوّن ملاحظاتك',done:true,xp:5}],
+    xp:135,days:[dd(-2),dd(-1)],checkins:{},badges:{t1:dd(-2)}
+  });
+  save();$('#reg').classList.remove('on');render();toast('جرّب تسجيل حضورك وإنهاء واجب 🎉');
+}
+
+load();
+$('#tDue').value=today();
+if(S.profile){render()}else{openReg()}
+})();
+</script>
+</body>
+</html>
